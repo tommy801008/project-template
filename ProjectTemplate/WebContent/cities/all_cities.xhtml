@@ -1,0 +1,80 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	template="/resources/templates/masterpage.xhtml">
+    
+	<ui:define name="head">
+		<script type="text/javascript">
+		 	$(function(){
+		 		
+			});
+		</script>
+	</ui:define>
+	
+	<ui:define name="body">
+		<div id="page_content">
+			
+			<h:form prependId="false">
+				
+				<div style=" height:20px; margin-bottom: 5px;">
+				
+					<ui:param name="firstPage" value="#{countryBean.paginator.pageIndex == 1}" />
+					<ui:param name="lastPage" value="#{countryBean.paginator.pageIndex == countryBean.paginator.pages}" />
+					
+					<h:panelGroup rendered="#{!empty countryBean.cities}" style=" margin-right: 10px;">
+							
+						<h:outputText value=" Page #{countryBean.paginator.pageIndex} of #{countryBean.paginator.pages}" rendered="#{!empty countryBean.cities}" style=" margin-bottom: 5px;" />
+						<h:outputText value=" Page 0 of 0" rendered="#{empty countryBean.cities}" />
+						&#160;
+	        			<h:commandButton rendered="#{firstPage}" class="disabledButton" image="/resources/images/paging/beginning.png" disabled="true" />
+						<h:commandButton rendered="#{!firstPage}" image="/resources/images/paging/beginning.png" type="submit" action="#{countryBean.firstPage}" />
+	        			&#160;
+	        			<h:commandButton rendered="#{firstPage}" class="disabledButton" image="/resources/images/paging/prev.png" disabled="true" style="font-weight:bold;" />
+						<h:commandButton rendered="#{!firstPage}" image="/resources/images/paging/prev.png" type="submit" action="#{countryBean.prevPage}" style="font-weight:bold;" />
+	        			&#160;
+	        			<h:commandButton rendered="#{lastPage}" class="disabledButton" image="/resources/images/paging/next.png" disabled="true" style="font-weight:bold;" />
+						<h:commandButton rendered="#{!lastPage}" image="/resources/images/paging/next.png" type="submit" action="#{countryBean.nextPage}" style="font-weight:bold;" />
+	        			&#160;
+	        			<h:commandButton rendered="#{lastPage}" class="disabledButton" image="/resources/images/paging/end.png" disabled="true" style="font-weight:bold;" />
+						<h:commandButton rendered="#{!lastPage}" image="/resources/images/paging/end.png" type="submit" action="#{countryBean.lastPage}" style="font-weight:bold;" />
+						
+					</h:panelGroup>
+				
+				</div>
+				
+				<table>
+					<thead>
+						<tr>
+							<th>City</th>
+							<th>Country Code</th>
+							<th>District</th>
+							<th>Population</th>
+						</tr>
+					</thead>
+					<tbody>
+						<ui:repeat var="c" value="#{countryBean.cities}">
+							<tr>
+								<td>
+									<h:outputText value="#{c.name}" />
+								</td>
+								<td>
+									<h:outputText value="#{c.country.code}" />
+								</td>
+								<td>
+									<h:outputText value="#{c.district}" />
+								</td>
+								<td>
+									<h:outputText value="#{c.population}" />
+								</td>
+							</tr>
+						</ui:repeat>
+					</tbody>
+				</table>
+				
+			</h:form>
+			
+		</div>
+	</ui:define>
+</ui:composition>

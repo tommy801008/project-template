@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/tags">
+	
+	<div class="container">
+	<ul id="gn-menu" class="gn-menu-main">
+		<li class="gn-trigger">
+			<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+			<nav class="gn-menu-wrapper">
+				<div class="gn-scroller">
+					<ul class="gn-menu">
+						
+						<ui:remove>
+							<!-- Search box in menu disabled -->
+							<li class="gn-search-item"><input placeholder="Search" type="search" class="gn-search"></input><a class="gn-icon gn-icon-search"><span>Search</span></a></li>
+						</ui:remove>
+						
+						<li><a href="#{request.contextPath}/projects/projects.xhtml" class="gn-icon gn-icon-archive">Projects</a></li>
+						<li><a href="#{request.contextPath}/skills/skills.xhtml" class="gn-icon gn-icon-cog">Skills</a></li>
+						<li><a href="#{request.contextPath}/gallery/image_gallery.xhtml" class="gn-icon gn-icon-pictures">Images</a></li>
+						<li><a href="#{request.contextPath}/gallery/video_gallery.xhtml" class="gn-icon gn-icon-videos">Videos</a></li>
+						<li><a href="#{request.contextPath}/articles/article.xhtml" class="gn-icon gn-icon-article">Articles</a></li>
+						
+					</ul>
+				</div>
+			</nav>
+		</li>
+		<li><a class="codrops-icon codrops-icon-drop" href="#{request.contextPath}/index.xhtml">Home</a></li>
+		<li><a class="codrops-icon codrops-icon-drop" href="#{request.contextPath}/about/about.xhtml"><span>About</span></a></li>
+		
+		<ui:remove>
+			<!-- Add css last child if included -->
+			<li><a class="codrops-icon codrops-icon-drop" href="#"><span>Admin</span></a></li>
+		</ui:remove>
+	</ul>
+	<header>
+		<h1 style="margin-right: 400px;">Project Template</h1>
+		<p>under construction ...</p>
+	</header>
+	</div>
+	
+</ui:composition>

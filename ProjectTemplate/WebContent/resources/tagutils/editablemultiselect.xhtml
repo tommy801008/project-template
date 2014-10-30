@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<composite:interface>
+		<composite:attribute name="selector" required="true"></composite:attribute>
+		<composite:attribute name="noneSelecctedText" required="true"></composite:attribute>
+		<composite:attribute name="value" required="true" ></composite:attribute>
+		<composite:attribute name="existingValues" type="java.lang.String" required="true"></composite:attribute>
+	</composite:interface>
+	<composite:implementation>
+		<script type="text/javascript">
+			$(function(){
+				var el =$("##{cc.attrs.selector}").multiselect({
+			 	    noneSelectedText: '#{cc.attrs.noneSelecctedText}',
+			 	   	minWidth: 275,
+			 	    selectedList: 2,
+			 	    checkAllText: 'Select All',
+			 	    uncheckAllText: 'Deselect All'
+			 	 }).multiselectfilter();
+
+				
+					var selected = #{cc.attrs.existingValues};
+				
+					var dropdown = document.getElementById("#{cc.attrs.selector}");
+					for ( var i = 0; i < dropdown.options.length; i++) {
+						var dropTemp = dropdown.options[i];
+						for ( var y = 0; y < selected.length; y++) {
+							var selectTemp = selected[y];
+							if (dropTemp.value == selectTemp) {
+								dropTemp.selected = true;
+							}
+						}
+					}
+				
+				el.multiselect('refresh');
+			})
+			
+		
+		</script>
+		
+		<select id="#{cc.attrs.selector}" name="#{cc.attrs.selector}" multiple="multiple">
+			<ui:repeat var="var" value="#{cc.attrs.value}">
+				<composite:insertChildren />
+			</ui:repeat>
+		</select>
+	</composite:implementation>
+	
+</h:html>

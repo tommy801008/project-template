@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<f:view contentType="text/html" ></f:view>
+	
+	<h:head>
+		<title>Title</title>
+		
+		<meta charset="UTF-8" ></meta>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Project Template</title>
+		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/nexus/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/nexus/style.css" />
+		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/nexus/component.css" />
+		<script src="#{request.contextPath}/resources/scripts/nexus/modernizr.custom.js"></script>
+		
+		<script type="text/javascript" src="#{request.contextPath}/resources/scripts/jquery/jquery-1.11.1.js" />
+		
+		<script src="#{request.contextPath}/resources/scripts/nexus/classie.js"></script>
+		<script src="#{request.contextPath}/resources/scripts/nexus/gnmenu.js"></script>
+		<script type="text/javascript">
+		 	$(function(){
+		 		new gnMenu( document.getElementById( 'gn-menu' ) );
+			});
+		</script>
+		
+		
+		<ui:insert name="head"/>
+	</h:head>
+	
+	<h:body class="body">
+		
+		
+		<ui:include src="/resources/templates/header.xhtml" />
+
+		<div class="inner_container">		
+			<ui:insert name="body" />
+		</div>
+		
+		<ui:remove>
+			<!-- NOT INCLUDED YET DUE TO PAGE HEIGHT NOT SET -->
+			<div style="margin: 0 auto;">
+				<ui:include src="/resources/templates/footer.xhtml"></ui:include>
+			</div>
+		</ui:remove>
+	    
+	</h:body>
+	
+</html>

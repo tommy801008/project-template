@@ -1,0 +1,193 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	template="/resources/templates/masterpage.xhtml">
+    
+	<ui:define name="head">
+		<script type="text/javascript" src="#{request.contextPath}/resources/scripts/filter.js" />
+		<script type="text/javascript">
+		 	$(function(){
+		 		checkFilter();
+			});
+		</script>
+		<style>
+			.column1 {
+				width: 80px;
+			}
+		</style>
+	</ui:define>
+	
+	<ui:define name="body">
+		<div id="page_content">
+			
+			<h:form prependId="false">
+				
+				<div id="filter_wrapper">
+					
+					<div class="thirdWidth" style="border: 1px solid white; float: left;">
+						
+						<table class="noBorderTable">
+							<tr id="country_code_tr" style="display:block;">
+								<td class="column1">
+									<h:outputText value="Country Code"/>
+								</td>
+								<td>
+									<h:inputText style="width: 253px;" id="country_code_input" size="40" value="#{countryBean.filterManager.filter.countryCode}" />
+								</td>
+							</tr>
+							<tr id="country_name_tr" style="display:block;">
+								<td class="column1">
+									<h:outputText value="Country"/>
+								</td>
+								<td>
+									<h:inputText style="width: 253px; margin-right:2px;" id="country_input" size="40" value="#{countryBean.filterManager.filter.country}" />
+									<h:graphicImage class="cursorClass" width="15" height="15" value="/resources/images/remove.png" onclick="removeTransFilter('country_name_tr')" />
+								</td>
+							</tr>
+							<tr id="countinent_tr" style="display:block;">
+								<td class="column1">
+									<h:outputText value="Continent"/>
+								</td>
+								<td>
+									<h:selectOneMenu id="continent_input" value="#{countryBean.filterManager.filter.continent}">
+										<f:selectItem />
+										<f:selectItem itemValue="Asia" itemLabel="Asia" />
+										<f:selectItem itemValue="Europe" itemLabel="Europe" />
+										<f:selectItem itemValue="North America" itemLabel="North America" />
+										<f:selectItem itemValue="South America" itemLabel="South America" />
+										<f:selectItem itemValue="Africa" itemLabel="Africa" />
+										<f:selectItem itemValue="Oceania" itemLabel="Oceania" />
+										<f:selectItem itemValue="Antarctica" itemLabel="Antarctica" />
+									</h:selectOneMenu>
+									<h:graphicImage class="cursorClass" width="15" height="15" value="/resources/images/remove.png" onclick="removeTransFilter('countinent_tr')" />
+								</td>
+							</tr>
+							<tr id="region_tr" style="display:block;">
+								<td class="column1">
+									<h:outputText value="Region"/>
+								</td>
+								<td>
+									<h:selectOneMenu id="region_input" value="#{countryBean.filterManager.filter.region}">
+										<f:selectItem />
+										<f:selectItem itemValue="Antarctica" itemLabel="Antarctica" />
+										<f:selectItem itemValue="Australia and New Zealand" itemLabel="Australia/New Zealand" />
+										<f:selectItem itemValue="Baltic Countries" itemLabel="Baltic Countries" />
+										<f:selectItem itemValue="British Islands" itemLabel="British Islands" />
+										<f:selectItem itemValue="Caribbean" itemLabel="Caribbean" />
+										<f:selectItem itemValue="Central Africa" itemLabel="Central Africa" />
+										<f:selectItem itemValue="Central America" itemLabel="Central America" />
+										<f:selectItem itemValue="Eastern Africa" itemLabel="Eastern Africa" />
+										<f:selectItem itemValue="Eastern Asia" itemLabel="Eastern Asia" />
+										<f:selectItem itemValue="Eastern Europe" itemLabel="Eastern Europe" />
+										<f:selectItem itemValue="Melanesia" itemLabel="Melanesia" />
+										<f:selectItem itemValue="Micronesia" itemLabel="Micronesia" />
+										<f:selectItem itemValue="Micronesia/Caribbean" itemLabel="Micronesia/Caribbean" />
+										<f:selectItem itemValue="Middle East" itemLabel="Middle East" />
+										<f:selectItem itemValue="Nordic Countries" itemLabel="Nordic Countries" />
+										<f:selectItem itemValue="North America" itemLabel="North America" />
+										<f:selectItem itemValue="Northern Africa" itemLabel="Northern Africa" />
+										<f:selectItem itemValue="Polynesia" itemLabel="Polynesia" />
+										<f:selectItem itemValue="South America" itemLabel="South America" />
+										<f:selectItem itemValue="Southeast Asia" itemLabel="Southeast Asia" />
+										<f:selectItem itemValue="Southern Africa" itemLabel="Southern Africa" />
+										<f:selectItem itemValue="Southern and Central Asia" itemLabel="Southern/Central Asia" />
+										<f:selectItem itemValue="Southern Europe" itemLabel="Southern Europe" />
+										<f:selectItem itemValue="Western Africa" itemLabel="Western Africa" />
+										<f:selectItem itemValue="Western Europe" itemLabel="Western Europe" />										
+									</h:selectOneMenu>
+									<h:graphicImage class="cursorClass" width="15" height="15" value="/resources/images/remove.png" onclick="removeTransFilter('region_tr')" />
+								</td>
+							</tr>
+						</table>
+						
+					</div>
+					<div style="float: left;">
+						<h:outputText value="Filter" style="float: left; margin-right: 5px;"/>
+						<h:selectOneMenu id="add_filter_select" onchange="add_filter()">
+				          <f:selectItem />
+				          <f:selectItem itemValue="country_code_tr" itemLabel="Country Code"/>
+				          <f:selectItem itemValue="country_name_tr" itemLabel="Country"/>
+				          <f:selectItem itemValue="countinent_tr" itemLabel="Continent"/>
+				          <f:selectItem itemValue="region_tr" itemLabel="Region"/>
+			         	</h:selectOneMenu>
+					
+					</div>
+					
+				</div>
+				
+				<div class="clear" />
+				
+				<div style="margin: 0px 10px 0px 240px;">
+					<h:commandButton value="Reset" action="#{countryBean.reset}" style="margin-right: 5px;" />
+					
+					<h:commandButton value="Apply" action="#{countryBean.findCountriesOrCitiesFiltered}"/>
+				</div>
+				
+				<div class="clear" />
+				
+				<div style=" margin-bottom: 5px;">
+					
+					<ui:param name="firstPage" value="#{countryBean.paginator.pageIndex == 1}" />
+					<ui:param name="lastPage" value="#{countryBean.paginator.pageIndex == countryBean.paginator.pages}" />
+					
+					<h:panelGroup rendered="#{!empty countryBean.countries}" style=" margin-right: 10px; float: left;">
+						
+						<h:outputText value="Results: #{countryBean.paginator.recordsTotal} | "/>
+						
+						<h:outputText value=" Page #{countryBean.paginator.pageIndex} of #{countryBean.paginator.pages}" rendered="#{!empty countryBean.countries}" style=" margin-bottom: 5px;" />
+						<h:outputText value=" Page 0 of 0" rendered="#{empty countryBean.countries}" />
+						&#160;
+	        			<h:commandButton rendered="#{firstPage}" class="disabledButton" image="/resources/images/paging/beginning.png" disabled="true" />
+						<h:commandButton rendered="#{!firstPage}" image="/resources/images/paging/beginning.png" type="submit" action="#{countryBean.firstPage}" />
+	        			&#160;
+	        			<h:commandButton rendered="#{firstPage}" class="disabledButton" image="/resources/images/paging/prev.png" disabled="true" style="font-weight:bold;" />
+						<h:commandButton rendered="#{!firstPage}" image="/resources/images/paging/prev.png" type="submit" action="#{countryBean.prevPage}" style="font-weight:bold;" />
+	        			&#160;
+	        			<h:commandButton rendered="#{lastPage}" class="disabledButton" image="/resources/images/paging/next.png" disabled="true" style="font-weight:bold;" />
+						<h:commandButton rendered="#{!lastPage}" image="/resources/images/paging/next.png" type="submit" action="#{countryBean.nextPage}" style="font-weight:bold;" />
+	        			&#160;
+	        			<h:commandButton rendered="#{lastPage}" class="disabledButton" image="/resources/images/paging/end.png" disabled="true" style="font-weight:bold;" />
+						<h:commandButton rendered="#{!lastPage}" image="/resources/images/paging/end.png" type="submit" action="#{countryBean.lastPage}" style="font-weight:bold;" />
+						
+						
+						
+					</h:panelGroup>
+					
+				</div>
+				
+				<table>
+					<thead>
+						<tr>
+							<th>Country Code</th>
+							<th>Country</th>
+							<th>Continent</th>
+							<th>Region</th>
+						</tr>
+					</thead>
+					<tbody>
+						<ui:repeat var="country" value="#{countryBean.countries}">
+							<tr>
+								<td>
+									<h:outputText value="#{country.code}" />
+								</td>
+								<td>
+									<h:outputText value="#{country.name}" />
+								</td>
+								<td>
+									<h:outputText value="#{country.continent}" />
+								</td>
+								<td>
+									<h:outputText value="#{country.region}" />
+								</td>
+							</tr>
+						</ui:repeat>
+					</tbody>
+				</table>
+				
+			</h:form>
+			
+		</div>
+	</ui:define>
+</ui:composition>
