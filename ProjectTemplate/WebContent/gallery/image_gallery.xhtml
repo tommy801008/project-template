@@ -167,8 +167,7 @@
 									$('#msg_wrapper').empty().append($image.fadeIn());
 								}).attr('src',source);
 							});
-						}
-						else{
+						} else{
 							$('<img />').load(function(){
 									var $image = $(this);
 									resize($image);
@@ -177,8 +176,7 @@
 							}).attr('src',source);
 						}
 								
-					}
-					else{ //this is actually not necessary since we have a circular slideshow
+					} else{ //this is actually not necessary since we have a circular slideshow
 						if(dir == 'r')
 							--current;
 						else if(dir == 'l')
