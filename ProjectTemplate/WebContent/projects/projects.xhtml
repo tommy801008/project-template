@@ -2,16 +2,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html" 
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:t="http://myfaces.apache.org/tomahawk"
-	xmlns:sec="http://www.springframework.org/security/tags"
 	template="/resources/templates/masterpage.xhtml">
     
 	<ui:define name="head">
-		
-		<ui:remove>
-			<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/tabstyle/demo.css" />
-		</ui:remove>
 		
 		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/tabstyle/tabs.css" />
 		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/tabstyle/tabstyles.css" />
@@ -24,15 +17,6 @@
 			});
 		</script>
 		<style>
-			.tab_section {
-				color: #74777b;
-				text-decoration: none;
-				outline: none;
-			}
-			
-			.tab_section:hover, .tab_section:focus {
-				color: #000;
-			}
 			
 		</style>
 	</ui:define>
@@ -119,21 +103,6 @@
 				</div><!-- /content -->
 			</div><!-- /tabs -->
 		</section>
-			
-			
-			
-			
-			
-			<ui:remove>
-				<h1>Projects Page</h1>
-				
-				<ul>
-					<li>List item 1</li>
-					<li>List item 2</li>
-					<li>List item 3</li>
-					<li>List item 4</li>
-				</ul>
-			</ui:remove>
 			
 	</ui:define>
 </ui:composition>

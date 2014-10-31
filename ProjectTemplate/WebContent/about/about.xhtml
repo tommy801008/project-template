@@ -2,9 +2,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html" 
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:t="http://myfaces.apache.org/tomahawk"
-	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:tp="http://java.sun.com/jsf/composite/tagutils"
 	template="/resources/templates/masterpage.xhtml">
     
 	<ui:define name="head">
@@ -16,8 +14,10 @@
 	</ui:define>
 	
 	<ui:define name="body">
+		
+		<h:form prependId="false">
 			
-			<h1>This is the about page</h1>
+			<h1>This is the about page <tp:tooltip tt_item="?" tt_content="Tooltip text here!!!" tt_direction="left" /></h1>
 			
 			<p>
 				"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
@@ -30,5 +30,7 @@
 				vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui 
 				dolorem eum fugiat quo voluptas nulla pariatur?"
 			</p>
+			
+		</h:form>
 	</ui:define>
 </ui:composition>

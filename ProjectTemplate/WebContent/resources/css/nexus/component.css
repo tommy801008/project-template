@@ -75,7 +75,7 @@
 		user-select: none;
 }
 
-/*
+/* Last menu item pushed to the right
 .gn-menu-main > li:last-child {
 		float: right;
 		border-right: none;

@@ -1,19 +1,25 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<h:html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:composite="http://java.sun.com/jsf/composite"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+<h:html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
 	<composite:interface>
-		<composite:attribute name="helpText" required="true"></composite:attribute>
+	   <composite:attribute name="tt_item" />
+	   <composite:attribute name="tt_content" />
+	   <composite:attribute name="tt_direction" />
 	</composite:interface>
 	
 	<composite:implementation>
-		<h:outputScript name="jquery.tooltipster.min.js" library="scripts" target="head"></h:outputScript>
-		<h:outputScript name="startup-tooltip.js" library="scripts" target="head"></h:outputScript>
-		 <div style="float:right" title="#{cc.attrs.helpText}" class="tooltip">
-			<img height="15" width="15" src="#{request.contextPath}/resources/images/icon.png"   style="position: absolute;  right:5px; top: 5px;" />
-		 </div>
+		<h:outputStylesheet library="css/tooltip" name="tooltip-sharp.css" />
+		<h:outputStylesheet library="css/tooltip" name="font-awesome.min.css" />
+		
+		<span class="tooltip tooltip-turn#{cc.attrs.tt_direction}">
+			<span class="tooltip-item">
+				<strong><i><h:outputText value="#{cc.attrs.tt_item}" /></i></strong>
+			</span>
+			<span class="tooltip-content">
+				<h:outputText value="#{cc.attrs.tt_content}" />
+			</span>
+		</span>
 	</composite:implementation>
-	
 </h:html>

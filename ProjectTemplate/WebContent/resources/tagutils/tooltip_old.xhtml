@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<composite:interface>
+		<composite:attribute name="helpText" required="true"></composite:attribute>
+	</composite:interface>
+	
+	<composite:implementation>
+		<h:outputScript name="jquery.tooltipster.min.js" library="scripts" target="head"></h:outputScript>
+		<h:outputScript name="startup-tooltip.js" library="scripts" target="head"></h:outputScript>
+		 <div style="float:right" title="#{cc.attrs.helpText}" class="tooltip">
+			<img height="15" width="15" src="#{request.contextPath}/resources/images/icon.png"   style="position: absolute;  right:5px; top: 5px;" />
+		 </div>
+	</composite:implementation>
+	
+</h:html>
