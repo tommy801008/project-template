@@ -6,6 +6,7 @@
 	template="/resources/templates/masterpage.xhtml">
     
 	<ui:define name="head">
+		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/modern.css" />
 		<script type="text/javascript">
 		 	$(function(){
 		 	
@@ -19,7 +20,7 @@
 			
 			<h1>This is the about page 
 			
-			<tp:tooltip_sharp tt_item="?" tt_content="Tooltip text here!!!" tt_direction="left" />
+			<tp:tooltip_sharp tt_item="*" tt_content="This page is filled with various junk at the moment!" tt_direction="left" />
 				
 			</h1>
 			
@@ -45,6 +46,42 @@
 				dolorem eum fugiat quo voluptas nulla pariatur?"
 			</p>
 			
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h:outputText value="Name" />
+						</td>
+						<td>
+							<h:inputText styleClass="line" value="" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h:outputText value="Address" />
+						</td>
+						<td>
+							<h:inputText styleClass="line" value="" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h:outputText value="Phone" />
+						</td>
+						<td>
+							<h:inputText styleClass="line" value="" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							
+						</td>
+						<td>
+							<h:button styleClass="modern" value="Button" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			
 		</h:form>
 	</ui:define>

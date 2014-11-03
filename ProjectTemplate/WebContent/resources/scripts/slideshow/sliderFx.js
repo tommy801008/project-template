@@ -34,7 +34,7 @@
 
 	SliderFx.prototype.options = {
 		// default transition speed (ms)
-		speed : 800,
+		speed : 500,
 		// default transition easing
 		easing : 'ease',
 		// path definitions
