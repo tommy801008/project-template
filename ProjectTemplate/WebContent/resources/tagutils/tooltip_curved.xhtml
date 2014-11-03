@@ -1,0 +1,35 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+	<composite:interface>
+		<!-- item that shows the tooltip -->
+	   	<composite:attribute name="tt_item" />
+	   	
+	   	<!-- showing a pulsating ring if true -->
+	   	<composite:attribute name="tt_pulsating" />
+	   
+	   	<!-- tooltip text -->
+	   	<composite:attribute name="tt_content" />
+	   
+	   	<!-- Direction = west or east -->
+	   	<composite:attribute name="tt_direction" />
+	</composite:interface>
+	
+	<composite:implementation>
+		<h:outputStylesheet library="css/tooltip" name="tooltip-curved.css" />
+		<h:outputStylesheet library="css/tooltip" name="font-awesome.min.css" />
+		
+		<div class="tooltip tooltip-#{cc.attrs.tt_direction}">
+			<h:panelGroup layout="block" rendered="#{cc.attrs.tt_pulsating eq 'true'}">
+				<span class="tooltip-item"></span>
+			</h:panelGroup>
+			<strong><h:outputText value="#{cc.attrs.tt_item}" /></strong>
+			<span class="tooltip-content">
+				<h:outputText value="#{cc.attrs.tt_content}" />
+			</span>
+		</div>
+		
+	</composite:implementation>
+</h:html>

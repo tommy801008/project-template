@@ -8,7 +8,7 @@
 	<ui:define name="head">
 		<script type="text/javascript">
 		 	$(function(){
-		 		
+		 	
 			});
 		</script>
 	</ui:define>
@@ -17,7 +17,21 @@
 		
 		<h:form prependId="false">
 			
-			<h1>This is the about page <tp:tooltip tt_item="?" tt_content="Tooltip text here!!!" tt_direction="left" /></h1>
+			<h1>This is the about page 
+			
+			<tp:tooltip_sharp tt_item="?" tt_content="Tooltip text here!!!" tt_direction="left" />
+				
+			</h1>
+			
+<!-- 			<tp:tooltip_round tt_effect="3" tt_href="#" tt_class="" tt_link_text="Text" /> -->
+			
+<!-- 			<tp:tooltip_line tt_href="#" tt_class="fa-envelope-o" tt_link_text="this is a link" tt_content="This is the tooltip text" /> -->
+			
+<!-- 			<tp:tooltip_flip tt_href="#" tt_class="" tt_link_text="Text" tt_image_src="img/user4.png" tt_image_alt="" tt_content="tooltip content goes here!" /> -->
+			
+<!-- 			<tp:tooltip_curved tt_item="?" tt_pulsating="false" tt_content="Tooltip text here!!!" tt_direction="east" /> -->
+			
+<!-- 			<tp:tooltip_comic tt_effect="1" tt_image_src="#{request.contextPath}/resources/images/gallery/thumbs/1.jpg" tt_image_alt="" tt_h4="Header Text" tt_content="This is the tooltip text" tt_comic="true" /> -->
 			
 			<p>
 				"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
@@ -30,6 +44,7 @@
 				vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui 
 				dolorem eum fugiat quo voluptas nulla pariatur?"
 			</p>
+			
 			
 		</h:form>
 	</ui:define>

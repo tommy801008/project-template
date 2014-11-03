@@ -1,0 +1,34 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+	<composite:interface>
+		<!-- href link -->
+		<composite:attribute name="tt_href" />
+		
+		<!-- tooltip class img -->
+		<composite:attribute name="tt_class" />
+		
+		<!-- visible link text -->
+		<composite:attribute name="tt_link_text" />
+	   	<composite:attribute name="tt_content" />
+	</composite:interface>
+	
+	<composite:implementation>
+		<h:outputStylesheet library="css/tooltip" name="tooltip-line.css" />
+		<h:outputStylesheet library="css/tooltip" name="font-awesome.min.css" />
+		
+		<a class="tooltip" href="#{cc.attrs.tt_href}">
+			<h:panelGroup layout="block" rendered="#{!empty cc.attrs.tt_class}">
+				<i class="fa fa-fw #{cc.attrs.tt_class}"></i>
+			</h:panelGroup> 
+			<h:outputText value="#{cc.attrs.tt_link_text}" />
+			<span class="tooltip-content">
+				<span class="tooltip-text">
+					<span class="tooltip-inner">#{cc.attrs.tt_content}</span>
+				</span>
+			</span>
+		</a>
+	</composite:implementation>
+</h:html>
