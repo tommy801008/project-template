@@ -2,14 +2,14 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html" 
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:t="http://myfaces.apache.org/tomahawk"
-	xmlns:sec="http://www.springframework.org/security/tags"
 	template="/resources/templates/masterpage.xhtml">
     
 	<ui:define name="head">
-		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/css_gallery/default.css" />
-		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/css_gallery/style4.css" />
+		
+		<ui:remove>
+			<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/css_gallery/default.css" />
+			<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/css_gallery/style4.css" />
+		</ui:remove>
 		<script type="text/javascript">
 		 	$(function(){
 		 		
@@ -18,99 +18,71 @@
 	</ui:define>
 	
 	<ui:define name="body">
-			
-		<section class="cr-container">
-			
-			<input id="select-img-1" name="radio-set-1" type="radio" class="cr-selector-img-1" checked="checked"/>
-			<label for="select-img-1" class="cr-label-img-1">1</label>
-			
-			<input id="select-img-2" name="radio-set-1" type="radio" class="cr-selector-img-2" />
-			<label for="select-img-2" class="cr-label-img-2">2</label>
-			
-			<input id="select-img-3" name="radio-set-1" type="radio" class="cr-selector-img-3" />
-			<label for="select-img-3" class="cr-label-img-3">3</label>
-			
-			<input id="select-img-4" name="radio-set-1" type="radio" class="cr-selector-img-4" />
-			<label for="select-img-4" class="cr-label-img-4">4</label>
-			
-			<div class="clr"></div>	
-			<div class="cr-bgimg">
-				<div>
-					<span>Slice 1 - Image 1</span>
-					<span>Slice 1 - Image 2</span>
-					<span>Slice 1 - Image 3</span>
-					<span>Slice 1 - Image 4</span>
+		
+		<ui:remove>	
+			<section class="cr-container">
+				
+				<input id="select-img-1" name="radio-set-1" type="radio" class="cr-selector-img-1" checked="checked"/>
+				<label for="select-img-1" class="cr-label-img-1">1</label>
+				
+				<input id="select-img-2" name="radio-set-1" type="radio" class="cr-selector-img-2" />
+				<label for="select-img-2" class="cr-label-img-2">2</label>
+				
+				<input id="select-img-3" name="radio-set-1" type="radio" class="cr-selector-img-3" />
+				<label for="select-img-3" class="cr-label-img-3">3</label>
+				
+				<input id="select-img-4" name="radio-set-1" type="radio" class="cr-selector-img-4" />
+				<label for="select-img-4" class="cr-label-img-4">4</label>
+				
+				<div class="clr"></div>	
+				<div class="cr-bgimg">
+					<div>
+						<span>Slice 1 - Image 1</span>
+						<span>Slice 1 - Image 2</span>
+						<span>Slice 1 - Image 3</span>
+						<span>Slice 1 - Image 4</span>
+					</div>
+					<div>
+						<span>Slice 2 - Image 1</span>
+						<span>Slice 2 - Image 2</span>
+						<span>Slice 2 - Image 3</span>
+						<span>Slice 2 - Image 4</span>
+					</div>
+					<div>
+						<span>Slice 3 - Image 1</span>
+						<span>Slice 3 - Image 2</span>
+						<span>Slice 3 - Image 3</span>
+						<span>Slice 3 - Image 4</span>
+					</div>
+					<div>
+						<span>Slice 4 - Image 1</span>
+						<span>Slice 4 - Image 2</span>
+						<span>Slice 4 - Image 3</span>
+						<span>Slice 4 - Image 4</span>
+					</div>
 				</div>
-				<div>
-					<span>Slice 2 - Image 1</span>
-					<span>Slice 2 - Image 2</span>
-					<span>Slice 2 - Image 3</span>
-					<span>Slice 2 - Image 4</span>
+				<div class="cr-titles">
+					<h3><span>Serendipity</span><span>What you've been dreaming of</span></h3>
+					<h3><span>Adventure</span><span>Where the fun begins</span></h3>
+					<h3><span>Nature</span><span>Unforgettable eperiences</span></h3>
+					<h3><span>Serenity</span><span>When silence touches nature</span></h3>
 				</div>
-				<div>
-					<span>Slice 3 - Image 1</span>
-					<span>Slice 3 - Image 2</span>
-					<span>Slice 3 - Image 3</span>
-					<span>Slice 3 - Image 4</span>
-				</div>
-				<div>
-					<span>Slice 4 - Image 1</span>
-					<span>Slice 4 - Image 2</span>
-					<span>Slice 4 - Image 3</span>
-					<span>Slice 4 - Image 4</span>
-				</div>
-			</div>
-			<div class="cr-titles">
-				<h3><span>Serendipity</span><span>What you've been dreaming of</span></h3>
-				<h3><span>Adventure</span><span>Where the fun begins</span></h3>
-				<h3><span>Nature</span><span>Unforgettable eperiences</span></h3>
-				<h3><span>Serenity</span><span>When silence touches nature</span></h3>
-			</div>
-		</section>
+			</section>
+		</ui:remove>	
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<h1>Video Gallery</h1>
-			
-			<p>
-				"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-				totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta 
-				sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
-				consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui 
-				dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora 
-				incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum 
-				exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-				vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui 
-				dolorem eum fugiat quo voluptas nulla pariatur?"
-			</p>
+		<h1>Video Gallery</h1>
+		
+		<p>
+			"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+			totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta 
+			sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+			consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui 
+			dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora 
+			incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum 
+			exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
+			vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui 
+			dolorem eum fugiat quo voluptas nulla pariatur?"
+		</p>
 			
 	</ui:define>
 </ui:composition>
