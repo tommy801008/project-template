@@ -47,13 +47,20 @@
 			</p>
 			
 			<table>
+				<thead>
+					<tr>
+						<th rowspan="2">
+							Contact form
+						</th>
+					</tr>
+				</thead>
 				<tbody>
 					<tr>
 						<td>
 							<h:outputText value="Name" />
 						</td>
 						<td>
-							<h:inputText styleClass="line" value="" />
+							<h:inputText styleClass="line" value="test" />
 						</td>
 					</tr>
 					<tr>
@@ -61,7 +68,7 @@
 							<h:outputText value="Address" />
 						</td>
 						<td>
-							<h:inputText styleClass="line" value="" />
+							<h:inputText styleClass="line" value="test" />
 						</td>
 					</tr>
 					<tr>
@@ -69,7 +76,7 @@
 							<h:outputText value="Phone" />
 						</td>
 						<td>
-							<h:inputText styleClass="line" value="" />
+							<h:inputText styleClass="line" value="test" />
 						</td>
 					</tr>
 					<tr>
@@ -78,6 +85,8 @@
 						</td>
 						<td>
 							<h:button styleClass="modern" value="Button" />
+							<h:commandButton styleClass="modern" value="TLS" action="#{mailBean.sendMailTLS}" />
+							<h:commandButton styleClass="modern" value="SSL" action="#{mailBean.sendMailSSL}" />
 						</td>
 					</tr>
 				</tbody>
