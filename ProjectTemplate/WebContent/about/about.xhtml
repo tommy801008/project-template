@@ -7,9 +7,11 @@
     
 	<ui:define name="head">
 		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/modern.css" />
+		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/intTelInput/intlTelInput.css" />
+		<script src="#{request.contextPath}/resources/scripts/intTelInput/intTelInput.js" />
 		<script type="text/javascript">
 		 	$(function(){
-		 	
+		 		$("#mobile-number").intlTelInput();
 			});
 		</script>
 	</ui:define>
@@ -77,6 +79,12 @@
 						</td>
 						<td>
 							<h:inputText styleClass="line" value="test" />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input id="mobile-number" class="form-control" type="tel" placeholder="+46 70 123 45 67" />
 						</td>
 					</tr>
 					<tr>
