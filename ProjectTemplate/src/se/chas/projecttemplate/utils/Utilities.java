@@ -51,15 +51,12 @@ public class Utilities {
 	}
 
 	public static boolean stringIsNullOrEmpty(String string) {
-		if (string == null || string.isEmpty()) {
-			return true;
-		}
-		return false;
+		return "".equals(string) || string == null;
 	}
 
 	public static boolean stringIsNullOrEmpty(String... strings) {
 		for (String s : strings) {
-			if (s == null || s.isEmpty()) {
+			if ("".equals(s) || s == null) {
 				return true;
 			}
 		}
@@ -144,11 +141,11 @@ public class Utilities {
 		// 1 gigabyte = 1 073 741 824
 		// 1 megabyte = 1 048 576 bytes
 		// 1 kilobyte = 1024 bytes
-		
+		BigDecimal bigDecimal = bytes;
 		
 		if (bytes.doubleValue() > 1073741824) {
 			// divide by 1073741824, 2 decimals
-			BigDecimal bigDecimal = bytes;
+			
 			BigDecimal bigDecimalResult = bigDecimal.divide(new BigDecimal(1073741824));
 			bigDecimalResult = bigDecimalResult.setScale(2, BigDecimal.ROUND_UP);
 			
@@ -156,7 +153,6 @@ public class Utilities {
 			
 		} else if (bytes.doubleValue() < 1073741824 && bytes.doubleValue() >= 1048576) {
 			// divide by 1048576, 2 decimals
-			BigDecimal bigDecimal = bytes;
 			BigDecimal bigDecimalResult = bigDecimal.divide(new BigDecimal(1048576));
 			bigDecimalResult = bigDecimalResult.setScale(2, BigDecimal.ROUND_UP);
 			
@@ -164,7 +160,6 @@ public class Utilities {
 			
 		} else if(bytes.doubleValue() < 1048576 && bytes.doubleValue() >= 1024) {
 			// divide by 1024, 2 decimals
-			BigDecimal bigDecimal = bytes;
 			BigDecimal bigDecimalResult = bigDecimal.divide(new BigDecimal(1024));
 			bigDecimalResult = bigDecimalResult.setScale(2, BigDecimal.ROUND_UP);
 			
